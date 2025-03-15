@@ -166,17 +166,26 @@ with tab2:
     non_working_rentals_11_16 = filtered_hour_df[(filtered_hour_df['workingday'] == 0) & 
                                                 (filtered_hour_df['hr'].between(11, 16))]['cnt'].sum()
     
-    # Hitung total penyewaan pada hari kerja jam 8 dan 17-18
-    working_rentals_peak = filtered_hour_df[(filtered_hour_df['workingday'] == 1) & 
-                                           ((filtered_hour_df['hr'] == 8) | 
-                                            (filtered_hour_df['hr'].between(17, 18)))]['cnt'].sum()
+    # Hitung total penyewaan pada hari kerja jam 8
+    working_rentals_8am = filtered_hour_df[(filtered_hour_df['workingday'] == 1) & 
+                                           (filtered_hour_df['hr'] == 8)]['cnt'].sum()
+    
+    # Hitung total penyewaan pada hari kerja jam 17-18
+    working_rentals_5pm_6pm = filtered_hour_df[(filtered_hour_df['workingday'] == 1) & 
+                                             (filtered_hour_df['hr'].between(17, 18))]['cnt'].sum()
     
     # Tampilkan metrik dalam dua kolom
     col1, col2 = st.columns(2)
     
     with col1:
         st.markdown('<div class="metric-container">', unsafe_allow_html=True)
-        st.metric("Total Penyewaan (08:00, 17:00-18:00, Hari Kerja)", f"{working_rentals_peak:,} sepeda")
+        st.metric("Total Penyewaan (08:00, Hari Kerja)", f"{working_rentals_8am:,} sepeda")
+        st.markdown('</div>', unsafe_allow_html=True)
+
+        st.write("")
+
+        st.markdown('<div class="metric-container">', unsafe_allow_html=True)
+        st.metric("Total Penyewaan (17:00-18, Hari Kerja)", f"{working_rentals_5pm_6pm:,} sepeda")
         st.markdown('</div>', unsafe_allow_html=True)
         
     with col2:

@@ -60,7 +60,7 @@ st.markdown("""
         border-radius: 5px;
     }
     .metric-container {
-        background-color: #ffffff;
+        background-color: #F5F0F0;
         padding: 15px;
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

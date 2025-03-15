@@ -59,12 +59,6 @@ st.markdown("""
         color: white;
         border-radius: 5px;
     }
-    .metric-container {
-        background-color: #F5F0F0;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -124,17 +118,14 @@ with st.container():
     col1, col2, col3 = st.columns(3)
     with col1:
         total_rentals = filtered_day_df['cnt'].sum()
-        st.markdown('<div class="metric-container">', unsafe_allow_html=True)
         st.metric("Total Penyewaan", f"{total_rentals:,}")
         st.markdown('</div>', unsafe_allow_html=True)
     with col2:
         avg_temp = filtered_day_df['temp_celsius'].mean().round(2)
-        st.markdown('<div class="metric-container">', unsafe_allow_html=True)
         st.metric("Rata-rata Suhu (°C)", f"{avg_temp}")
         st.markdown('</div>', unsafe_allow_html=True)
     with col3:
         avg_hum = (filtered_day_df['hum'] * 100).mean().round(2)
-        st.markdown('<div class="metric-container">', unsafe_allow_html=True)
         st.metric("Rata-rata Kelembaban (%)", f"{avg_hum}")
         st.markdown('</div>', unsafe_allow_html=True)
 

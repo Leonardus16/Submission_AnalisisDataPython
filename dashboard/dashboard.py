@@ -179,18 +179,18 @@ with tab2:
     
     with col1:
         st.markdown('<div class="metric-container">', unsafe_allow_html=True)
-        st.metric("Total Penyewaan (08:00, Hari Kerja)", f"{working_rentals_8am:,} sepeda")
+        st.metric("Total Penyewaan Hari Kerja(08:00)", f"{working_rentals_8am:,} sepeda")
         st.markdown('</div>', unsafe_allow_html=True)
 
         st.write("")
 
         st.markdown('<div class="metric-container">', unsafe_allow_html=True)
-        st.metric("Total Penyewaan (17:00-18, Hari Kerja)", f"{working_rentals_5pm_6pm:,} sepeda")
+        st.metric("Total Penyewaan Hari Kerja (17:00-18)", f"{working_rentals_5pm_6pm:,} sepeda")
         st.markdown('</div>', unsafe_allow_html=True)
         
     with col2:
         st.markdown('<div class="metric-container">', unsafe_allow_html=True)
-        st.metric("Total Penyewaan (11:00-16:00, Bukan Hari Kerja)", f"{non_working_rentals_11_16:,} sepeda")
+        st.metric("Total Penyewaan Bukan Hari Kerja (11:00-16:00)", f"{non_working_rentals_11_16:,} sepeda")
         st.markdown('</div>', unsafe_allow_html=True)
     
     with st.expander("Detail Insight"):

@@ -137,7 +137,6 @@ with st.container():
         st.markdown('<div class="metric-container">', unsafe_allow_html=True)
         st.metric("Rata-rata Kelembaban (%)", f"{avg_hum}")
         st.markdown('</div>', unsafe_allow_html=True)
-""", unsafe_allow_html=True)
 
 # Tabs untuk Navigasi
 tab1, tab2, tab3 = st.tabs(["📊 Korelasi Lingkungan", "⏰ Pola Peminjaman", "🔍 Analisis Lanjutan"])

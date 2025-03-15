@@ -161,6 +161,14 @@ with tab2:
                    template='plotly_dark')
     fig2.update_layout(xaxis=dict(tickmode='linear', tick0=0, dtick=1), showlegend=True)
     st.plotly_chart(fig2, use_container_width=True)
+
+    # Container untuk metrik pola penyewaan hari kerja vs bukan hari kerja
+    working_metric, non_working_metric = st.columns(2)
+    
+    # Hitung total penyewaan pada hari kerja jam 8 dan 17-18 (commuting)
+    working_rentals_commuting = filtered_hour_df[(filtered_hour_df['workingday'] == 1) & 
+                                              ((filtered_hour_df['hr'] == 8) | 
+                                               (filtered_hour_df['hr'].between(17, 18)))]['cnt'].sum()
     
     # Hitung total penyewaan pada bukan hari kerja jam 11-16
     non_working_rentals_11_16 = filtered_hour_df[(filtered_hour_df['workingday'] == 0) & 

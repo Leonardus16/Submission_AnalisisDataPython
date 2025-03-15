@@ -180,7 +180,7 @@ with tab2:
             st.markdown(f"""
                 <div class="metric-container">
                     <h4 style="margin:0; font-size:1rem; font-weight:500; color:#888">Penyewaan Jam Sibuk (08:00, 17:00-18:00, Hari Kerja)</h4>
-                    <h2 style="margin:0; font-size:1.8rem; font-weight:600;">{working_rentals_commuting:,} sepeda</h2>
+                    <h2 style="margin:0; font-size:1.8rem; font-weight:600;">{working_rentals_commuting:} sepeda</h2>
                     <p style="margin:5px 0 0; font-size:0.8rem; color:#888;">Periode Commuting</p>
                 </div>
             """, unsafe_allow_html=True)
@@ -190,7 +190,7 @@ with tab2:
             st.markdown(f"""
                 <div class="metric-container">
                     <h4 style="margin:0; font-size:1rem; font-weight:500; color:#888">Penyewaan Jam Sibuk (11:00-16:00, Bukan Hari Kerja)</h4>
-                    <h2 style="margin:0; font-size:1.8rem; font-weight:600;">{non_working_rentals_recreation:,} sepeda</h2>
+                    <h2 style="margin:0; font-size:1.8rem; font-weight:600;">{non_working_rentals_recreation:} sepeda</h2>
                     <p style="margin:5px 0 0; font-size:0.8rem; color:#888;">Periode Rekreasi</p>
                 </div>
             """, unsafe_allow_html=True)

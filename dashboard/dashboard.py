@@ -25,7 +25,7 @@ st.markdown("""
         border-radius: 10px;
     }
     .stApp {
-        background-color: #ffffff;
+        background-color: #141922;
     }
     .sidebar .sidebar-content {
         background-color: #2c3e50;

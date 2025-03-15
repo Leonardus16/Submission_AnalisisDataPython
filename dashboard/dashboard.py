@@ -70,7 +70,7 @@ st.markdown("""
 
 # Judul dan Deskripsi dengan Animasi Sederhana
 st.markdown("""
-    <h1 style="text-align: center; color: #2c3e50; animation: fadeIn 1s;">
+    <h1 style="text-align: center; color: #ffff; animation: fadeIn 1s;">
         Bike Sharing Analytics Dashboard 🚲
     </h1>
     <p style="text-align: center; color: #7f8c8d;">
@@ -124,19 +124,31 @@ with st.container():
     col1, col2, col3 = st.columns(3)
     with col1:
         total_rentals = filtered_day_df['cnt'].sum()
-        st.markdown('<div class="metric-container">', unsafe_allow_html=True)
-        st.metric("Total Penyewaan", f"{total_rentals:,}")
-        st.markdown('</div>', unsafe_allow_html=True)
+        with st.container():
+            st.markdown(f"""
+                <div class="metric-container">
+                    <h4 style="margin:0; font-size:1rem; font-weight:500; color:#888">Total Penyewaan</h4>
+                    <h2 style="margin:0; font-size:1.8rem; font-weight:600;">{total_rentals:,}</h2>
+                </div>
+            """, unsafe_allow_html=True)
     with col2:
         avg_temp = filtered_day_df['temp_celsius'].mean().round(2)
-        st.markdown('<div class="metric-container">', unsafe_allow_html=True)
-        st.metric("Rata-rata Suhu (°C)", f"{avg_temp}")
-        st.markdown('</div>', unsafe_allow_html=True)
+        with st.container():
+            st.markdown(f"""
+                <div class="metric-container">
+                    <h4 style="margin:0; font-size:1rem; font-weight:500; color:#888">Rata-rata Suhu (°C)</h4>
+                    <h2 style="margin:0; font-size:1.8rem; font-weight:600;">{avg_temp}</h2>
+                </div>
+            """, unsafe_allow_html=True)
     with col3:
         avg_hum = (filtered_day_df['hum'] * 100).mean().round(2)
-        st.markdown('<div class="metric-container">', unsafe_allow_html=True)
-        st.metric("Rata-rata Kelembaban (%)", f"{avg_hum}")
-        st.markdown('</div>', unsafe_allow_html=True)
+        with st.container():
+            st.markdown(f"""
+                <div class="metric-container">
+                    <h4 style="margin:0; font-size:1rem; font-weight:500; color:#888">Rata-rata Kelembaban (%)</h4>
+                    <h2 style="margin:0; font-size:1.8rem; font-weight:600;">{avg_hum}</h2>
+                </div>
+            """, unsafe_allow_html=True)
 
 # Tabs untuk Navigasi
 tab1, tab2, tab3 = st.tabs(["📊 Korelasi Lingkungan", "⏰ Pola Peminjaman", "🔍 Analisis Lanjutan"])

@@ -170,10 +170,30 @@ with tab2:
                                               ((filtered_hour_df['hr'] == 8) | 
                                                (filtered_hour_df['hr'].between(17, 18)))]['cnt'].sum()
     
+    
     # Hitung total penyewaan pada bukan hari kerja jam 11-16
     non_working_rentals_11_16 = filtered_hour_df[(filtered_hour_df['workingday'] == 0) & 
                                                 (filtered_hour_df['hr'].between(11, 16))]['cnt'].sum()
-    st.metric("Total Penyewaan (11:00-16:00, Bukan Hari Kerja)", f"{non_working_rentals_11_16:,} sepeda")
+    
+    with working_metric:
+        with st.container():
+            st.markdown(f"""
+                <div class="metric-container">
+                    <h4 style="margin:0; font-size:1rem; font-weight:500; color:#888">Penyewaan Jam Sibuk (08:00, 17:00-18:00, Hari Kerja)</h4>
+                    <h2 style="margin:0; font-size:1.8rem; font-weight:600;">{working_rentals_commuting:,} sepeda</h2>
+                    <p style="margin:5px 0 0; font-size:0.8rem; color:#888;">Periode Commuting</p>
+                </div>
+            """, unsafe_allow_html=True)
+    
+    with non_working_metric:
+        with st.container():
+            st.markdown(f"""
+                <div class="metric-container">
+                    <h4 style="margin:0; font-size:1rem; font-weight:500; color:#888">Penyewaan Jam Sibuk (11:00-16:00, Bukan Hari Kerja)</h4>
+                    <h2 style="margin:0; font-size:1.8rem; font-weight:600;">{non_working_rentals_recreation:,} sepeda</h2>
+                    <p style="margin:5px 0 0; font-size:0.8rem; color:#888;">Periode Rekreasi</p>
+                </div>
+            """, unsafe_allow_html=True)
     
     with st.expander("Detail Insight"):
         st.markdown("""
